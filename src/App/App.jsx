@@ -4,7 +4,7 @@ import 後端 from './後端';
 import './App.css';
 
 import Debug from 'debug';
-var debug = Debug('itaigi:App');
+var debug = Debug('tshi3:App');
 
 export default class App extends React.Component {
 
@@ -13,10 +13,7 @@ export default class App extends React.Component {
     <div className='app background'>
       <h1 className='ui  blue header'>臺語線頂錄音</h1>
         { React.cloneElement(
-          this.props.children,
-          {
-            後端網址: 後端.網址(),
-          }
+          this.props.children
         )}
     </div>
     );

@@ -3,6 +3,8 @@ import cookie from 'react-cookie';
 import superagent from 'superagent-bluebird-promise';
 import Debug from 'debug';
 import 後端 from '../App/後端';
+
+import 辨識結果 from '../元件/辨識結果';
 import 顯示例句 from '../元件/顯示例句';
 import 錄好上傳 from '../元件/錄好上傳';
 
@@ -25,9 +27,6 @@ export default class 錄 extends React.Component {
         上傳好矣: false,
         全部確定的資料: [],
       };
-  }
-
-  componentDidMount() {
   }
 
   送出音檔(blob) {
@@ -80,20 +79,16 @@ export default class 錄 extends React.Component {
     this.fileReader.readAsArrayBuffer(確定的音檔);
   }
 
-  改顯示名(evt) {
-    let 顯示名 = evt.target.value;
-    this.setState({ 顯示名 });
-  }
-
   render() {
     let { frequency, timeInterval, channels, 顯示名, 音檔, 資料, 漢字音標對齊 } = this.state;
     let { 有確定的資料, 當佇送, 上傳好矣, 全部確定的資料 } = this.state;
       return (
         <div className='app container'>
-          你的瀏覽器不支援44100Hz以上的錄音。錄音頻率是：{frequency}
+          你的瀏覽器不支援4410dddxccx0Hz以上的錄音。錄音頻率是：{frequency}
         </div>
         );
 
+          // <辨識結果 />
     return (
     <div className='app container'>
         <div className="ui form">
