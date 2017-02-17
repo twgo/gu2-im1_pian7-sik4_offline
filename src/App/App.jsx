@@ -10,7 +10,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className='app background'>
-        <h1 className='ui  blue header'>臺語線頂錄音</h1>
+        <h1 className='ui  blue header'>臺語線頂辨識</h1>
         {this.props.children }
       </div>
     );
