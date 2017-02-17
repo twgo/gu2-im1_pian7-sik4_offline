@@ -10,12 +10,12 @@ export default class App extends React.Component {
 
   render() {
     return (
-    <div className='app background'>
-      <h1 className='ui  blue header'>臺語線頂錄音</h1>
-        { React.cloneElement(
-          this.props.children
-        )}
-    </div>
+      <div className='app background'>
+        <h1 className='ui  blue header'>臺語線頂錄音</h1>
+        {
+          React.cloneElement(this.props.children)
+        }
+      </div>
     );
   }
 }

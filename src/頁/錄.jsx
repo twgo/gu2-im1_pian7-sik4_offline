@@ -53,7 +53,7 @@ export default class 錄 extends React.Component {
   }
 
   錄好的上傳(確定的音檔=this.state.全部確定的資料.確定的音檔) {
-    return
+    return;
     this.setState({ 當佇送: true });
     this.fileReader = new FileReader();
     this.fileReader.onload = function () {
@@ -82,13 +82,13 @@ export default class 錄 extends React.Component {
   render() {
     let { frequency, timeInterval, channels, 顯示名, 音檔, 資料, 漢字音標對齊 } = this.state;
     let { 有確定的資料, 當佇送, 上傳好矣, 全部確定的資料 } = this.state;
-      return (
-        <div className='app container'>
-          你的瀏覽器不支援4410dddxccx0Hz以上的錄音。錄音頻率是：{frequency}
+    return (
+      <div className='app container'>
+          你的瀏覽器不支援44100Hz以上的錄音。錄音頻率是：{frequency}
         </div>
-        );
+      );
 
-          // <辨識結果 />
+    // <辨識結果 />
     return (
     <div className='app container'>
         <div className="ui form">
