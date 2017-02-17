@@ -1,9 +1,7 @@
 import React from 'react';
 import superagent from 'superagent-bluebird-promise';
-import 漢字臺羅 from '../元件/漢字臺羅';
-import 錄音控制 from '../元件/錄音控制';
-import 音檔表 from '../元件/音檔表';
 import 後端 from '../App/後端';
+import 漢字臺羅 from './漢字臺羅';
 
 import Debug from 'debug';
 var debug = Debug('tshi3:辨識結果');
@@ -42,11 +40,12 @@ export default class 辨識結果 extends React.Component {
       return <div/>;
     }
 
-    let a = 辨識結果.map((結果)=>(<div>{結果.編號} {結果.狀態}</div>))
+    let a = 辨識結果.map((結果)=>(<漢字臺羅 結果={結果}/>))
 
     let { 音檔 } = this.state;
     return (
     <div className='ui segment'>
+      <h2>辨識結果</h2>
        {a}
     </div>
     );

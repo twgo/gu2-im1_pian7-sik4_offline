@@ -5,8 +5,9 @@ import Debug from 'debug';
 import 後端 from '../App/後端';
 
 import 辨識結果 from '../元件/辨識結果';
-import 顯示例句 from '../元件/顯示例句';
 import 錄好上傳 from '../元件/錄好上傳';
+import 錄音控制 from '../元件/錄音控制';
+import 音檔表 from '../元件/音檔表';
 
 var debug = Debug('itaigi:錄');
 
@@ -29,6 +30,11 @@ export default class 錄 extends React.Component {
       };
   }
 
+  加音檔(blob) {
+    let { 音檔 } = this.state;
+    this.setState({ 音檔: [...音檔, blob] });
+  }
+
   送出音檔(blob) {
     let { 有確定的資料, 上傳好矣 } = this.state;
     if (有確定的資料 && !上傳好矣) {
@@ -41,29 +47,26 @@ export default class 錄 extends React.Component {
       全部確定的資料: {
         啥人唸的: 啥人唸的,
         確定的音檔: blob,
-        編號: 資料.編號,
         漢字音標對齊: 漢字音標對齊,
       },
       有確定的資料: true,
       上傳好矣: false,
     });
 
-    this.掠後一句稿();
     this.錄好的上傳(blob);
+    this.setState({ 音檔: [] });
   }
 
   錄好的上傳(確定的音檔=this.state.全部確定的資料.確定的音檔) {
-    return;
-    this.setState({ 當佇送: true });
+    // this.setState({ 當佇送: true });
     this.fileReader = new FileReader();
     this.fileReader.onload = function () {
         let encoded_blob = btoa(new Uint8Array(this.fileReader.result));
         let { 全部確定的資料 } = this.state;
-        superagent.post(後端.稿())
+        superagent.post(後端.辦識音檔())
           .set('Content-Type', 'application/x-www-form-urlencoded')
           .send({
-            啥人唸的: 全部確定的資料.啥人唸的,
-            編號: 全部確定的資料.編號,
+            語言: '閩南語',
             blob: encoded_blob,
           })
           .then(({ body })=>(
@@ -71,9 +74,10 @@ export default class 錄 extends React.Component {
           ))
           .catch((err) => (
             debug(err),
-            alert('上傳失敗，麻煩檢查網路或回報錯誤～'),
-            this.setState({ 當佇送: false })
+            alert('上傳失敗，麻煩檢查網路或回報錯誤～')
+            // this.setState({ 當佇送: false })
           ));
+        this.setState({ 當佇送: false, 上傳好矣: true });
       }.bind(this);
 
     this.fileReader.readAsArrayBuffer(確定的音檔);
@@ -84,29 +88,20 @@ export default class 錄 extends React.Component {
     let { 有確定的資料, 當佇送, 上傳好矣, 全部確定的資料 } = this.state;
     return (
       <div className='app container'>
-          你的瀏覽器不支援44100Hz以上的錄音。錄音頻率是：{frequency}
-           <辨識結果 />
-        </div>
-      );
+        <div className='ui segment'>
+          <h2>開始錄音</h2>
+          <錄音控制 frequency={frequency} timeInterval={timeInterval} channels={channels}
+            加音檔={this.加音檔.bind(this)}/>
 
-    //
-    return (
-    <div className='app container'>
-        <div className="ui form">
-          <div className="fields">
-            <div className="field">
-              <label>名</label>
-              <input ref='名' type='text' placeholder="你叫啥名"
-                value={顯示名} onChange={this.改顯示名.bind(this)}/>
-            </div>
-            <button className="ui button" onClick={this.掠稿.bind(this)}>載入進度</button>
-          </div>
+          <音檔表 音檔={音檔} 送出音檔={this.送出音檔.bind(this)} />
         </div>
-        <錄好上傳
-          錄好的上傳={this.錄好的上傳.bind(this)}
-          確定的資料={全部確定的資料}
-          有確定的資料={有確定的資料} 當佇送={當佇送} 上傳好矣={上傳好矣}/>
-    </div>
-    );
+        <辨識結果 />
+      </div>
+      );
+    
+          // <錄好上傳
+          //   錄好的上傳={this.錄好的上傳.bind(this)}
+          //   確定的資料={全部確定的資料}
+          //   有確定的資料={有確定的資料} 當佇送={當佇送} 上傳好矣={上傳好矣}/>
   }
 }
