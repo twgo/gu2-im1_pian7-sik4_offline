@@ -1,31 +1,27 @@
 {
-  "name": "itaigi",
-  "version": "0.0.3",
-  "description": "itaigi",
+  "name": "tshi3lok8",
+  "version": "0.0.1",
+  "description": "tshi3lok8",
   "scripts": {
     "start": "node devServer.js",
-    "seo": "node seoServer.js",
     "test": "jscs *.js src/",
     "reformat": "jscs -x *.js src/",
-    "build": "mkdir -p build;rm -f build/* && NODE_ENV=production webpack --config webpack.config.prod.js && cp html/index.html favicons/* build/ && cp html/index.html build/404.html",
-    "deploy": "npm run build && rm -rf node_modules/gh-pages/.cache/ && gh-pages -d build/",
-    "deploy-tshi3": "npm run build && (echo 'tshi3.itaigi.tw' > build/CNAME) && rm -rf node_modules/gh-pages/.cache/ && gh-pages -r https://github.com/g0v-frontend-test/itaigi-tshi3.git -d build/",
-    "deploy-giam7": "npm run build && (echo 'giam7.itaigi.tw' > build/CNAME) && rm -rf node_modules/gh-pages/.cache/ && gh-pages -r https://github.com/g0v-frontend-test/itaigi-giam7.git -d build/",
-    "deploy-test": "npm run build && (echo 'test.itaigi.tw' > build/CNAME) && rm -rf node_modules/gh-pages/.cache/ && gh-pages -r https://github.com/g0v-frontend-test/itaigi-test.git -d build/"
+    "build": "mkdir -p build;rm -f build/* && NODE_ENV=production webpack --config webpack.config.prod.js && cp html/index.html build/404.html",
+    "deploy": "npm run build && gh-pages -d build/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/g0v/itaigi.git"
+    "url": "https://github.com/i3thuan5/tshi3lok8.git"
   },
   "keywords": [
     "g0v"
   ],
-  "author": "itaigi",
+  "author": "tshi3lok8",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/g0v/itaigi/issues"
+    "url": "https://github.com/i3thuan5/tshi3lok8/issues"
   },
-  "homepage": "https://github.com/g0v/itaigi",
+  "homepage": "https://github.com/i3thuan5/tshi3lok8",
   "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.23.1",
@@ -67,6 +63,6 @@
     "webpack-hot-middleware": "^2.16.1"
   },
   "engines": {
-    "node": "^5.2.0"
+    "node": "^6.9.0"
   }
 }

@@ -22,12 +22,12 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.jsx'],
   },
   module: {
     rules: [
        {
-          test: /\.jsx?$/,
+          test: /\.jsx$/,
           use: ['babel-loader', 'strict-loader'],
           include: [path.join(__dirname, 'src')],
         },
