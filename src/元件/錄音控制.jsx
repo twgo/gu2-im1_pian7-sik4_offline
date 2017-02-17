@@ -2,7 +2,7 @@ import React from 'react';
 import MediaStreamRecorder from 'msr';
 
 import Debug from 'debug';
-var debug = Debug('itaigi:錄音控制');
+var debug = Debug('tshi3:錄音控制');
 
 export default class 錄音控制 extends React.Component {
   constructor(props) {

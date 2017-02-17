@@ -1,10 +1,9 @@
 {
   "name": "tshi3lok8",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "description": "tshi3lok8",
   "scripts": {
     "start": "node devServer.js",
-    "seo": "node seoServer.js",
     "test": "jscs *.js src/",
     "reformat": "jscs -x *.js src/",
     "build": "mkdir -p build;rm -f build/* && NODE_ENV=production webpack --config webpack.config.prod.js && (echo 'xn--kpr588gf9hjvay1npqo.xn--v0qr21b.xn--kpry57d' > build/CNAME) && cp index.html build/ && cp index.html build/404.html",
@@ -64,6 +63,6 @@
     "webpack-hot-middleware": "^2.16.1"
   },
   "engines": {
-    "node": "^5.2.0"
+    "node": "^6.9.0"
   }
 }
