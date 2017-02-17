@@ -1,7 +1,7 @@
 export default class 後端  {
   static 網址() {
     //return 'http://localhost:8000/';
-    return 'http://順風耳.意傳.台灣/';
+    return 'http://vcac-16144.iis.sinica.edu.tw/';
   }
 
   static 辦識音檔() {
