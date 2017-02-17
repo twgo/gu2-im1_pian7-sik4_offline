@@ -2,19 +2,6 @@ body {
   margin: 0;
 }
 
-.app.background {
-  display: flex;
-  flex-flow: column nowrap;
-  min-height: 100vh;
-  background-color: #f1efeb;
-  padding:20px;
-}
-
-.app .container {
-  width: 100%;
-  max-width: 960px;
-}
-
 audio {
  vertical-align: middle;
 }
@@ -32,8 +19,4 @@ audio {
 ruby {
   font-family: "MOEDICT", "FiraSansOT", sans-serif;
   vertical-align: middle;
-}
-
-span.ui.button{
-  margin-bottom:0.5em;
 }
