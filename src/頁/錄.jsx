@@ -85,10 +85,11 @@ export default class 錄 extends React.Component {
     return (
       <div className='app container'>
           你的瀏覽器不支援44100Hz以上的錄音。錄音頻率是：{frequency}
+           <辨識結果 />
         </div>
       );
 
-    // <辨識結果 />
+    //
     return (
     <div className='app container'>
         <div className="ui form">
