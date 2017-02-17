@@ -24,7 +24,7 @@ export default class 辨識結果 extends React.Component {
     clearInterval(this.timer);
   }
   查怎樣講(){
-    superagent.get(後端.辦識結果())
+    superagent.post(後端.辦識結果())
           .then(({ body })=>(
             this.setState(body)
           ))
