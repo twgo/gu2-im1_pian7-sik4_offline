@@ -1,7 +1,10 @@
 export default class 後端  {
   static 網址() {
+    
     //return 'http://localhost:8000/';
-    return 'http://vcac-16144.iis.sinica.edu.tw/';
+
+    // https://辨識後端.意傳.台灣/
+    return 'https://xn--h4tp32dbtlf7d.xn--v0qr21b.xn--kpry57d/';
   }
 
   static 辦識音檔() {
