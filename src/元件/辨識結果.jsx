@@ -60,13 +60,12 @@ export default class 辨識結果 extends React.Component {
   }
 
   render() {
-    debug(this.state);
     let { 辨識結果 } = this.state;
     if (辨識結果 === undefined) {
       return <div/>;
     }
 
-    let 辨識漢字臺羅 = 辨識結果.slice(0, this.state.顯示幾个).map((結果)=>(<漢字臺羅 結果={結果}/>));
+    let 辨識漢字臺羅 = 辨識結果.slice(0, this.state.顯示幾个).map((結果, i)=>(<漢字臺羅 key={i} 結果={結果}/>));
 
     let { 音檔 } = this.state;
     return (
