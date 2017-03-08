@@ -37,7 +37,7 @@ export default class 錄 extends React.Component {
 
   送出音檔(blob) {
     let { 有確定的資料, 上傳好矣 } = this.state;
-    
+
     // if (有確定的資料 && !上傳好矣) {
     //   alert('頂一句猶未上傳成功，請先上傳頂一句。');
     //   return;
@@ -74,7 +74,7 @@ export default class 錄 extends React.Component {
             this.setState({ 當佇送: false, 上傳好矣: true })
           ))
           .catch((err) => (
-            debug(err),
+            debug(err)
             // alert('上傳失敗，麻煩檢查網路或回報錯誤～')
             // this.setState({ 當佇送: false })
           ));
