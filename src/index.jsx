@@ -15,7 +15,7 @@ render(
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={錄}/>
-        <Route path='/' component={錄}/>
+        <Route path='*' component={錄}/>
       </Route>
     </Router>
   </div>,
