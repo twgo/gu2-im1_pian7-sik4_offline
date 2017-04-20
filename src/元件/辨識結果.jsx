@@ -39,7 +39,7 @@ export default class 辨識結果 extends React.Component {
   }
 
   查怎樣講() {
-    superagent.post(後端.辦識結果())
+    superagent.get(後端.辦識結果())
           .then(({ body })=>(
             this.setState(body)
           ))
