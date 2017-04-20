@@ -3,8 +3,8 @@ export default class 後端  {
     
     //return 'http://localhost:8000/';
 
-    // https://辨識後端.意傳.台灣/
-    return 'https://xn--h4tp32dbtlf7d.xn--v0qr21b.xn--kpry57d/';
+    // https://服務.意傳.台灣/
+    return 'https://xn--lhrz38b.xn--v0qr21b.xn--kpry57d/';
   }
 
   static 辦識音檔() {
