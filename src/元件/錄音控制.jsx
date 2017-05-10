@@ -53,12 +53,12 @@ export default class 錄音控制 extends React.Component {
   }
 
   render() {
-    let { 第幾个, frequency } = this.props;
+    let { 第幾个, channels, frequency } = this.props;
     let { 這馬時間 } = this.state;
     return (
         <section>
             <div className="ui teal tag label">
-              <i className="music icon"></i>雙聲道 {frequency}Hz WAV
+              <i className="music icon"></i>{channels}聲道 {frequency}Hz WAV
             </div>
             {!this.state.start ?
             <button id="start-recording" className="ui compact blue labeled icon button"

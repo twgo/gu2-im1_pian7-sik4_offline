@@ -19,7 +19,7 @@ export default class 錄 extends React.Component {
     this.state = {
         frequency: sampleRate, // 無法度改
         timeInterval: 600 * 1000, // 錄音最長600秒
-        channels: 2,
+        channels: 1,
         顯示名: cookie.load('hian2si7_mia5'),
         資料: undefined,
         音檔: [],
