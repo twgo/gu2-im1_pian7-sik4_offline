@@ -11,17 +11,17 @@ class 辨識結果 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      顯示幾个: 10,
+      顯示幾个: 3,
     };
   }
 
   componentWillMount() {
     this.取得辨識結果();
-    //this.timer = setInterval(this.取得辨識結果.bind(this), 2000);
+    this.timer = setInterval(this.取得辨識結果.bind(this), 2000);
   }
 
   componentWillUnmount() {
-    //clearInterval(this.timer);
+    clearInterval(this.timer);
   }
 
   加顯示幾个() {
@@ -51,7 +51,6 @@ class 辨識結果 extends React.Component {
     if(辨識結果){
       陣列 = 辨識結果.slice(0, this.state.顯示幾个)
         .map((結果, i)=>{
-        console.log(結果)
         return (<漢字臺羅 key={i} 結果={結果}/>);
       });
     }

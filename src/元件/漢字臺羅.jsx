@@ -29,8 +29,9 @@ export default class 漢字臺羅 extends React.PureComponent {
     }
 
     let 一句陣列 = 綜合標音.map((標音,i) =>(<一句 key={i} 標音={標音}/>));
+    let 區塊樣式 = 編號 % 3 == 1 ? "app line group": null;
     return (
-      <div>
+      <div className={區塊樣式}>
         第 {編號} 句
         <audio
           src={後端.聽音檔(網址)}

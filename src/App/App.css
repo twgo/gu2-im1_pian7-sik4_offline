@@ -28,6 +28,11 @@ ruby {
   z-index: -1;
 }
 
+.app.line.group {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(34,36,38,.15);
+}
+
 /*overwrite*/
 .ui.main {
   margin: 10px 0px;
