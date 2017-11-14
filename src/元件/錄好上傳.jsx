@@ -21,7 +21,8 @@ export default class 錄好上傳 extends React.Component {
       this.fileInput.value = '';
       this.setState({
         當佇送: false,
-        請求數: 0
+        請求數: 0,
+        上傳檔名: "選擇檔案..."
       });
     }
   }
