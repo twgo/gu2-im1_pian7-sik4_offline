@@ -10,43 +10,55 @@ export default class 錄好上傳 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      當佇送: false
+      當佇送: false,
+      請求數: 0
     };
   }
 
   componentDidUpdate() {
-    if (this.state.當佇送 == false) {
+    if (this.state.請求數 == 3) {
       this.fileInput.value = '';
+      this.setState({
+        當佇送: false,
+        請求數: 0
+      });
     }
   }
 
   handleClick(e) {
     let fileInput = this.fileInput;
     let 音檔 = fileInput.files[0];
-    this.setState({ 當佇送: true });
     this.fileReader = new FileReader();
     this.fileReader.onload = function () {
         let encoded_blob = btoa(new Uint8Array(this.fileReader.result));
-        let { 全部確定的資料 } = this.state;
-        superagent.post(後端.辦識音檔())
-          .set('Content-Type', 'application/x-www-form-urlencoded')
-          .send({
-            語言: '臺語',
-            blob: encoded_blob,
-          })
-          .then(({ body })=>(
-            this.setState({ 當佇送: false })
-          ))
-          .catch((err) => (
-            debug(err),
-            alert('上傳失敗，麻煩檢查網路或回報錯誤～'),
-            this.setState({ 當佇送: false })
-          ));
+        this.setState({
+          當佇送: true,
+          請求數: 0
+        });
+        this.送出音檔('臺語', encoded_blob);
+        this.送出音檔('華語', encoded_blob);
+        this.送出音檔('臺華', encoded_blob);
       }.bind(this);
-
     this.fileReader.readAsArrayBuffer(音檔);
   }
 
+  送出音檔(語言, encoded_blob) {
+    superagent.post(後端.辦識音檔())
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+      .send({
+        語言,
+        blob: encoded_blob,
+      })
+      .then((body)=>{
+        this.setState((prevState) => {
+          return {請求數: prevState.請求數 + 1};
+        })
+      })
+      .catch((err) => (
+        debug(err),
+        alert('上傳失敗，麻煩檢查網路或回報錯誤～')
+      ));
+  }
 
   render() {
     return (

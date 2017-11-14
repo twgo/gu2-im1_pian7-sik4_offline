@@ -11,7 +11,7 @@ class 辨識結果 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      顯示幾个: 30,
+      顯示幾个: 10,
     };
   }
 
@@ -39,10 +39,10 @@ class 辨識結果 extends React.Component {
       .then(({ body })=>(
         this.setState(body)
       ))
-      .catch((err) => (
+      .catch((err) => {
+        console.log('hihi', err)
         debug(err)
-      ));
-
+      });
   }
 
   辨識漢字臺羅() {
