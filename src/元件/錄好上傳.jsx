@@ -10,6 +10,8 @@ export default class 錄好上傳 extends React.Component {
     super(props);
   }
 
+
+
   render() {
     let { 有確定的資料, 當佇送, 上傳好矣, 錄好的上傳 } = this.props;
 
@@ -45,7 +47,6 @@ export default class 錄好上傳 extends React.Component {
     return (
     <div className='ui segment'>
       上傳失敗，請閣傳一擺<br/>
-      <音檔表 音檔={[確定的音檔]} 送出音檔={錄好的上傳.bind(this)} />
     </div>
     );
   }
