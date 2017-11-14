@@ -11,21 +11,17 @@ class 辨識結果 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      顯示幾个: this.預設顯示幾个(),
+      顯示幾个: 30,
     };
   }
 
   componentWillMount() {
-    this.查怎樣講();
-    this.timer = setInterval(this.查怎樣講.bind(this), 2000);
+    this.取得辨識結果();
+    this.timer = setInterval(this.取得辨識結果.bind(this), 2000);
   }
 
   componentWillUnmount() {
     clearInterval(this.timer);
-  }
-
-  預設顯示幾个() {
-    return 30;
   }
 
   加顯示幾个() {
@@ -38,19 +34,30 @@ class 辨識結果 extends React.Component {
     this.setState({ 顯示幾个 });
   }
 
-  查怎樣講() {
+  取得辨識結果() {
     superagent.get(後端.辦識結果())
-          .then(({ body })=>(
-            this.setState(body)
-          ))
-          .catch((err) => (
-            debug(err)
-          ));
+      .then(({ body })=>(
+        this.setState(body)
+      ))
+      .catch((err) => (
+        debug(err)
+      ));
 
   }
 
+  辨識漢字臺羅() {
+    let { 辨識結果 } = this.state;
+    let 陣列 = null;
+    if(辨識結果){
+      陣列 = 辨識結果.slice(0, this.state.顯示幾个)
+        .map((結果, i)=>(<漢字臺羅 key={i} 結果={結果}/>));
+    }
+    return 陣列;
+  }
+
   看閣較濟() {
-    if (this.state.辨識結果.length > this.state.顯示幾个)
+    let { 辨識結果 } = this.state;
+    if (辨識結果 && 辨識結果.length > this.state.顯示幾个)
     return (
         <button onClick={this.看閣較濟全開.bind(this)}
           className='ui button'>
@@ -60,17 +67,9 @@ class 辨識結果 extends React.Component {
   }
 
   render() {
-    let { 辨識結果 } = this.state;
-    if (辨識結果 === undefined) {
-      return <div/>;
-    }
-
-    let 辨識漢字臺羅 = 辨識結果.slice(0, this.state.顯示幾个).map((結果, i)=>(<漢字臺羅 key={i} 結果={結果}/>));
-
-    let { 音檔 } = this.state;
     return (
     <div className='ui segment'>
-      {辨識漢字臺羅}
+      {this.辨識漢字臺羅()}
       {this.看閣較濟()}
     </div>
     );
