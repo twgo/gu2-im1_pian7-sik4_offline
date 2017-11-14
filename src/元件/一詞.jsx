@@ -8,7 +8,7 @@ var debug = Debug('tshi3:一詞');
 export default class 一詞 extends React.Component {
 
   render() {
-    let { 分詞, 漢字, 臺羅 } = this.props;
+    let { 漢字, 臺羅 } = this.props;
 
     return (
       <ruby>
