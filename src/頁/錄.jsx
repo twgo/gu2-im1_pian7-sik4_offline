@@ -4,7 +4,6 @@ import superagent from 'superagent-bluebird-promise';
 import Debug from 'debug';
 import 後端 from '../App/後端';
 
-import 辨識結果 from '../元件/辨識結果';
 import 錄好上傳 from '../元件/錄好上傳';
 import 錄音控制 from '../元件/錄音控制';
 import 音檔表 from '../元件/音檔表';
@@ -100,9 +99,9 @@ export default class 錄 extends React.Component {
             錄好的上傳={this.錄好的上傳.bind(this)}
             確定的資料={全部確定的資料}
             有確定的資料={有確定的資料} 當佇送={當佇送} 上傳好矣={上傳好矣}/>
-        <辨識結果 />
+
       </div>
       );
-    
+
   }
 }
