@@ -22,6 +22,12 @@ ruby {
   vertical-align: middle;
 }
 
+#upload-photo {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
 /*overwrite*/
 .ui.main {
   margin: 10px 0px;

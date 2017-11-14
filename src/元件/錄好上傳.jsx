@@ -11,7 +11,8 @@ export default class 錄好上傳 extends React.Component {
     super(props);
     this.state = {
       當佇送: false,
-      請求數: 0
+      請求數: 0,
+      上傳檔名: "選擇檔案..."
     };
   }
 
@@ -60,14 +61,23 @@ export default class 錄好上傳 extends React.Component {
       ));
   }
 
+  handleFileChange(e) {
+    let 上傳檔名 = e.target.files.item(0).name || "選擇檔案...";
+    this.setState({上傳檔名});
+  }
+
   render() {
     return (
       <div className="ui basic segment">
+        <label htmlFor="upload-photo" className="ui labeled icon button">
+          <i className="folder open outline icon"/>{this.state.上傳檔名}</label>
         <input
+          id="upload-photo"
           type="file"
-          ref={(input) => { this.fileInput = input; }}/>
+          ref={(input) => { this.fileInput = input; }}
+          onChange={this.handleFileChange.bind(this)}/>
         <button
-          className="ui compact blue labeled icon button"
+          className="ui blue labeled icon button"
           onClick={this.handleClick.bind(this)}
           disabled={this.state.當佇送}>
             <i className="upload icon"/>上傳</button>
