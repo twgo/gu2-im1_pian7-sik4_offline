@@ -6,7 +6,7 @@ import Debug from 'debug';
 var debug = Debug('tshi3:App');
 
 export default class App extends React.Component {
-  constructor(){
+  constructor(props){
     super(props);
     this.state = {};
   }
