@@ -68,7 +68,7 @@ class 辨識結果 extends React.Component {
 
   render() {
     return (
-    <div className='ui segment'>
+    <div className='ui basic segment'>
       {this.辨識漢字臺羅()}
       {this.看閣較濟()}
     </div>

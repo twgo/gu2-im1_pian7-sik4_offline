@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background: #f1efeb;
 }
 
 audio {
@@ -19,4 +20,9 @@ audio {
 ruby {
   font-family: "MOEDICT", "FiraSansOT", sans-serif;
   vertical-align: middle;
+}
+
+/*overwrite*/
+.ui.main {
+  margin: 10px 0px;
 }

@@ -9,7 +9,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className='app background'>
+      <div className='ui main container'>
         <h1 className='ui  blue header'>臺語線頂辨識</h1>
         <div className="ui horizontal bulleted list">
           <Link className="item" to="/">錄音</Link>

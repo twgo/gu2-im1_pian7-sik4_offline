@@ -59,7 +59,7 @@ export default class 錄 extends React.Component {
     let { 有確定的資料, 當佇送, 上傳好矣, 全部確定的資料 } = this.state;
     return (
       <div className='app container'>
-        <div className='ui segment'>
+        <div className='ui basic segment'>
           <h2>開始錄音</h2>
           <錄音控制 frequency={myAudioContext.sampleRate} timeInterval={timeInterval} channels={channels}
             加音檔={this.加音檔.bind(this)}/>
