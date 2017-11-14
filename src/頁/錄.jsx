@@ -14,9 +14,8 @@ export default class 錄 extends React.Component {
   constructor(props) {
     super(props);
     let AudioContext = window.AudioContext || window.webkitAudioContext;
-    let { sampleRate } = new AudioContext();
     this.state = {
-        frequency: sampleRate, // 無法度改
+        myAudioContext: new AudioContext(), // 無法度改
         timeInterval: 600 * 1000, // 錄音最長600秒
         channels: 1,
         顯示名: cookie.load('hian2si7_mia5'),
@@ -27,6 +26,10 @@ export default class 錄 extends React.Component {
         上傳好矣: false,
         全部確定的資料: [],
       };
+  }
+
+  componentWillUnmount(){
+    this.state.myAudioContext.close();
   }
 
   加音檔(blob) {
@@ -84,13 +87,13 @@ export default class 錄 extends React.Component {
   }
 
   render() {
-    let { frequency, timeInterval, channels, 顯示名, 音檔, 資料, 漢字音標對齊 } = this.state;
+    let { myAudioContext, timeInterval, channels, 顯示名, 音檔, 資料, 漢字音標對齊 } = this.state;
     let { 有確定的資料, 當佇送, 上傳好矣, 全部確定的資料 } = this.state;
     return (
       <div className='app container'>
         <div className='ui segment'>
           <h2>開始錄音</h2>
-          <錄音控制 frequency={frequency} timeInterval={timeInterval} channels={channels}
+          <錄音控制 frequency={myAudioContext.sampleRate} timeInterval={timeInterval} channels={channels}
             加音檔={this.加音檔.bind(this)}/>
 
           <音檔表 音檔={音檔} 送出音檔={this.送出音檔.bind(this)} />

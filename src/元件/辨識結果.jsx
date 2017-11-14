@@ -6,7 +6,7 @@ import 漢字臺羅 from './漢字臺羅';
 import Debug from 'debug';
 var debug = Debug('tshi3:辨識結果');
 
-export default class 辨識結果 extends React.Component {
+class 辨識結果 extends React.Component {
 
   constructor(props) {
     super(props);
@@ -70,10 +70,11 @@ export default class 辨識結果 extends React.Component {
     let { 音檔 } = this.state;
     return (
     <div className='ui segment'>
-      <h2>辨識結果</h2>
-       {辨識漢字臺羅}
-       {this.看閣較濟()}
+      {辨識漢字臺羅}
+      {this.看閣較濟()}
     </div>
     );
   }
 }
+
+export default 辨識結果;

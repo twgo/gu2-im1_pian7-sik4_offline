@@ -13,6 +13,7 @@ class 辨識 extends React.Component {
   render(){
     return (
     <div className='app container'>
+        <h2>辨識</h2>
       <辨識結果/>
     </div>
     );
