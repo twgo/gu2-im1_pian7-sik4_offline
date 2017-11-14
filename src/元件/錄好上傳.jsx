@@ -50,7 +50,7 @@ export default class 錄好上傳 extends React.Component {
 
   render() {
     return (
-      <section>
+      <div className="ui basic segment">
         <input
           type="file"
           ref={(input) => { this.fileInput = input; }}/>
@@ -59,7 +59,7 @@ export default class 錄好上傳 extends React.Component {
           onClick={this.handleClick.bind(this)}
           disabled={this.state.當佇送}>
             <i className="upload icon"/>上傳</button>
-      </section>
+      </div>
     );
   }
 }
