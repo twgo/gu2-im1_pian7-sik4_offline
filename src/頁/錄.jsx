@@ -60,7 +60,6 @@ export default class 錄 extends React.Component {
     return (
       <div className='app container'>
         <div className='ui basic segment'>
-          <h2>開始錄音</h2>
           <錄音控制 frequency={myAudioContext.sampleRate} timeInterval={timeInterval} channels={channels}
             加音檔={this.加音檔.bind(this)}/>
           <音檔表 音檔={音檔}/>
