@@ -14,11 +14,11 @@ export default class 漢字臺羅 extends React.PureComponent {
   }
 
   render() {
-    let { 編號, 網址, 狀態, 分詞, 綜合標音 } = this.props.結果;
+    let { 編號, 網址, 狀態, 分詞, 綜合標音, 語言 } = this.props.結果;
     if (狀態 != '成功') {
       return (
         <div>
-          第 {編號} 句
+          第 {編號} 句({語言})
           <audio
             src={後端.聽音檔(網址)}
             type="audio/wav" controls>
@@ -32,7 +32,7 @@ export default class 漢字臺羅 extends React.PureComponent {
     let 區塊樣式 = 編號 % 3 == 1 ? "app line group": null;
     return (
       <div className={區塊樣式}>
-        第 {編號} 句
+        第 {編號} 句({語言})
         <audio
           src={後端.聽音檔(網址)}
           type="audio/wav" controls>
