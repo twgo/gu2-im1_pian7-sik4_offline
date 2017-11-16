@@ -17,11 +17,11 @@ class 辨識結果 extends React.Component {
 
   componentWillMount() {
     this.取得辨識結果();
-    this.timer = setInterval(this.取得辨識結果.bind(this), 2000);
+    // this.timer = setInterval(this.取得辨識結果.bind(this), 2000);
   }
 
   componentWillUnmount() {
-    clearInterval(this.timer);
+    // clearInterval(this.timer);
   }
 
   加顯示幾个() {

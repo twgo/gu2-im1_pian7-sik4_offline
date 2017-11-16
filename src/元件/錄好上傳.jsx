@@ -6,6 +6,18 @@ import 後端 from '../App/後端';
 
 var debug = Debug('itaigi:錄好上傳');
 
+let 送出音檔 = item => (
+  request.post(後端.辦識音檔())
+    .set('Content-Type', 'application/x-www-form-urlencoded')
+    .send({
+      語言: item.語言,
+      blob: item.encoded_blob,
+    })
+    .then(function(value){
+        console.log('request info', value)
+    })
+)
+
 export default class 錄好上傳 extends React.Component {
 
   constructor(props) {
@@ -13,7 +25,6 @@ export default class 錄好上傳 extends React.Component {
     this.state = {
       當佇送: false,
       上傳檔名: "選擇檔案...",
-      encoded_blob: null
     };
   }
 
@@ -27,85 +38,33 @@ export default class 錄好上傳 extends React.Component {
     this.fileReader.readAsArrayBuffer(音檔);
   }
 
-  // 送出所有語言的請求(encoded_blob) {
-  //   this.setState({
-  //       encoded_blob,
-  //       當佇送: true
-  //   });
-  //   let promise臺華 = this.送出音檔('臺華');
-  //   let promise華語 = this.送出音檔('華語');
-  //   let promise臺語 = this.送出音檔('臺語');
-  //   //Promise.all([promise華語, promise臺華, promise臺語])
-  //   Promise.each([promise華語, promise臺華, promise臺語],
-  //     function(item, index, length){
-  //       console.log(`index: ${index}`)
-  //       console.log(`item: `, item)
-  //   })
-  //     .then(()=>{
-  //         console.log("all the files were created");
-  //         this.fileInput.value = '';
-  //         this.setState({
-  //           當佇送: false,
-  //           上傳檔名: "選擇檔案..."
-  //         });
-  //     }).catch((e, status) => {
-  //         console.log("error occurred", e, status);
-  //         this.fileInput.value = '';
-  //         this.setState({
-  //           當佇送: false,
-  //           上傳檔名: "選擇檔案..."
-  //         });
-  //     });
-  // }
-  clearUploadStatus(){
-    this.fileInput.value = '';
-    this.setState({
-      當佇送: false,
-      上傳檔名: "選擇檔案..."
-    });
-  }
   送出所有語言的請求(encoded_blob) {
     this.setState({
-        encoded_blob,
         當佇送: true
     });
-    request.post(後端.辦識音檔())
-    .set('Content-Type', 'application/x-www-form-urlencoded')
-    .send({
-      語言: '臺華',
-      blob: encoded_blob,
-    })
-    .then(()=>{
-        request.post(後端.辦識音檔())
-        .set('Content-Type', 'application/x-www-form-urlencoded')
-        .send({
-          語言: '華語',
-          blob: encoded_blob,
-        })
-        .then(()=>{
-            request.post(後端.辦識音檔())
-            .set('Content-Type', 'application/x-www-form-urlencoded')
-            .send({
-              語言: '臺語',
-              blob: encoded_blob,
-            })
-            .then(()=>{
-                console.log("all the files were created");
-                this.clearUploadStatus();
-            });
-        });
-    });
+    Promise.each([{
+        語言: '臺華', encoded_blob
+      },{
+        語言: '華語', encoded_blob
+      },{
+        語言: '臺語', encoded_blob
+      }], (item)=>(送出音檔(item))
+    ).then(()=>{
+          console.log("All the requests were sent");
+          this.fileInput.value = '';
+          this.setState({
+            當佇送: false,
+            上傳檔名: "選擇檔案..."
+          });
+      }).catch((e, status) => {
+          console.log("Error occurred", e, status);
+          this.fileInput.value = '';
+          this.setState({
+            當佇送: false,
+            上傳檔名: "選擇檔案..."
+          });
+      });
   }
-  // 送出音檔(語言) {
-  //   let { encoded_blob } = this.state;
-  //   //return request promise
-  //   return request.post(後端.辦識音檔())
-  //     .set('Content-Type', 'application/x-www-form-urlencoded')
-  //     .send({
-  //       語言,
-  //       blob: encoded_blob,
-  //     }).promise();
-  // }
 
   handleFileChange(e) {
     let 上傳檔名 = e.target.files.item(0).name || "選擇檔案...";
