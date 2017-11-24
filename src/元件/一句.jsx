@@ -14,7 +14,7 @@ export default class 一句 extends React.Component {
     if (分詞 && 漢字 && 拼音) {
       let 分詞陣列 = 分詞.split(' ');
       let 漢字陣列 = 漢字.split(' ');
-      let 臺羅陣列 = 拼音.split(' ');
+      let 臺羅陣列 = 拼音.replace(/--/g, " --").trim().split(' ');
 
       let 詞 = 分詞陣列.map((分詞, i)=>(
         <一詞 key={i}
