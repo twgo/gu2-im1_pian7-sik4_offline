@@ -4,7 +4,7 @@ export default class 後端  {
     //return 'http://localhost:8000/';
 
     // https://服務.意傳.台灣/
-    return 'https://xn--lhrz38b.xn--v0qr21b.xn--kpry57d';
+    return 'https://asr-backend.iis.sinica.edu.tw';
   }
 
   static 辦識音檔() {
