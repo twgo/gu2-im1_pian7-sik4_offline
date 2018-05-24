@@ -14,7 +14,7 @@ before_deploy:
 - npm run build
 deploy:
   provider: pages
-  fqdn: asr.iis.sinica.edu.tw
+  fqdn: asr-offline.iis.sinica.edu.tw
   skip_cleanup: true
   local_dir: build/
   github_token: $GITHUB_TOKEN
