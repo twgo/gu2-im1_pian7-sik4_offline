@@ -4,10 +4,19 @@ node_js:
 - '6'
 env:
 - TSI2_LING7='build'
-- TSI2_LING7='test'
 branches:
   only:
   - master
 script:
 - echo npm run $TSI2_LING7
 - npm run $TSI2_LING7
+before_deploy:
+- npm run build
+deploy:
+  provider: pages
+  fqdn: asr.iis.sinica.edu.tw
+  skip_cleanup: true
+  local_dir: build/
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
