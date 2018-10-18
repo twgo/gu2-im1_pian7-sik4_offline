@@ -52,6 +52,10 @@ export default class 錄好上傳 extends React.Component {
         語言: '2018臺語', encoded_blob
       },{
         語言: '2018臺語加詞', encoded_blob
+      },{
+        語言: '2018臺語加詞2', encoded_blob
+      },{
+        語言: '2018臺語8k加詞2', encoded_blob
       }], (item)=>(送出音檔(item))
     ).then(()=>{
           console.log("All the requests were sent");
