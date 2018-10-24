@@ -43,9 +43,11 @@ export default class 錄好上傳 extends React.Component {
         當佇送: true
     });
     Promise.each([{
-        語言: '臺華', encoded_blob
-      },{
-        語言: '華語', encoded_blob
+//        語言: '臺華', encoded_blob
+//      },{
+//        語言: '華語', encoded_blob
+ //     },{
+        語言: '2018華語8k', encoded_blob
       },{
         語言: '臺語', encoded_blob
       },{
@@ -54,6 +56,8 @@ export default class 錄好上傳 extends React.Component {
         語言: '2018臺語加詞', encoded_blob
       },{
         語言: '2018臺語加詞2', encoded_blob
+      },{
+        語言: '2018臺語8k', encoded_blob
       },{
         語言: '2018臺語8k加詞2', encoded_blob
       }], (item)=>(送出音檔(item))
