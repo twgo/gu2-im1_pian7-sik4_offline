@@ -4,7 +4,7 @@
 ## Docker
 ### 前端
 ```
-docker run --name guim --restart=always -d -p 8300:3000 twgo/gu2-im1_pian7-sik4_offline
+docker run --name guim --restart=always -d -p 8300:3000 twgo/gu2-im1_pian7-sik4_offline:tsiunn-suann
 ```
 
 ### 後端
