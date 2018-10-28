@@ -43,15 +43,15 @@ export default class 錄好上傳 extends React.Component {
         當佇送: true
     });
     Promise.each([{
-        語言: '臺華', encoded_blob
+        語言: '2017臺華', encoded_blob
       },{
-        語言: '華語', encoded_blob
+        語言: '2017華語', encoded_blob
       },{
         語言: '2018華語8k', encoded_blob
       },{
         語言: '2018華語8k加詞', encoded_blob
       },{
-        語言: '臺語', encoded_blob
+        語言: '2017臺語', encoded_blob
       },{
         語言: '2018臺語', encoded_blob
       },{
