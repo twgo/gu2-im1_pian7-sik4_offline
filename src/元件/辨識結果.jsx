@@ -11,7 +11,7 @@ class 辨識結果 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      顯示幾个: 3,
+      顯示幾个: 10,
     };
   }
 
@@ -25,7 +25,7 @@ class 辨識結果 extends React.Component {
   }
 
   加顯示幾个() {
-    return 10;
+    return 100;
   }
 
   看閣較濟全開() {
