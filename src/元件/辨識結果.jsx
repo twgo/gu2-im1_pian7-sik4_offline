@@ -11,13 +11,12 @@ class 辨識結果 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      顯示幾个: 10,
+      顯示幾个: 100,
     };
   }
 
   componentWillMount() {
     this.取得辨識結果();
-    this.timer = setInterval(this.取得辨識結果.bind(this), 2000);
   }
 
   componentWillUnmount() {
@@ -25,7 +24,7 @@ class 辨識結果 extends React.Component {
   }
 
   加顯示幾个() {
-    return 100;
+    return 10000;
   }
 
   看閣較濟全開() {
@@ -36,7 +35,10 @@ class 辨識結果 extends React.Component {
 
   取得辨識結果() {
     superagent.get(後端.辦識結果())
-      .then(({ body })=>(
+      .query({
+        數量: 10000,
+      })
+		.then(({ body })=>(
         this.setState(body)
       ))
       .catch((err) => {
@@ -50,6 +52,7 @@ class 辨識結果 extends React.Component {
     let 陣列 = null;
     if(辨識結果){
       陣列 = 辨識結果.slice(0, this.state.顯示幾个)
+		   .filter( 結果=>  結果.語言=='2018臺語8k加詞2')
         .map((結果, i)=>{
         return (<漢字臺羅 key={i} 結果={結果}/>);
       });
