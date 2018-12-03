@@ -43,29 +43,29 @@ export default class 錄好上傳 extends React.Component {
         當佇送: true
     });
     Promise.each([{
-        語言: '2017臺華', encoded_blob
-      },{
-        語言: '2017華語', encoded_blob
-      },{
-        語言: '2017臺語', encoded_blob
-      },{
-        語言: '2018華語-8K-加詞', encoded_blob
-      },{
-        語言: '2018臺語-16K-TDNN', encoded_blob
-      },{
-        語言: '2018臺語-16K-TDNN-加詞', encoded_blob
-      },{
-        語言: '2018臺語-16K-TDNN-加詞2', encoded_blob
-      },{
+//        語言: '2017臺華', encoded_blob
+//      },{
+//        語言: '2017華語', encoded_blob
+ //     },{
+//        語言: '2017臺語', encoded_blob
+//      },{
+//        語言: '2018華語-8K-加詞', encoded_blob
+//      },{
+//        語言: '2018臺語-16K-TDNN', encoded_blob
+//      },{
+//        語言: '2018臺語-16K-TDNN-加詞', encoded_blob
+//      },{
+//        語言: '2018臺語-16K-TDNN-加詞2', encoded_blob
+//      },{
         語言: '2018臺語-16K-TDNNF-VP', encoded_blob
-      },{
-        語言: '2018臺語-8K-TDNN', encoded_blob
-      },{
-        語言: '2018臺語-8K-TDNN-加詞2', encoded_blob
-      },{
-        語言: '2018華語-8K-TDNNF-VP', encoded_blob
-      },{
-        語言: '2018臺語-8K-TDNNF-VP', encoded_blob
+ //     },{
+//        語言: '2018臺語-8K-TDNN', encoded_blob
+//      },{
+//        語言: '2018臺語-8K-TDNN-加詞2', encoded_blob
+//      },{
+//        語言: '2018華語-8K-TDNNF-VP', encoded_blob
+//      },{
+//        語言: '2018臺語-8K-TDNNF-VP', encoded_blob
 //      },{
 //        語言: '2018臺語-8K-TDNNF-VP-加詞2-seven', encoded_blob
       }], (item)=>(送出音檔(item))
